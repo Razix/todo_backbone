@@ -16,9 +16,10 @@ development:
   adapter: postgresql
   encoding: unicode
   database: todo_backbone_development
+  host: localhost
   pool: 5
-  username: todo_backbone
-  password:
+  username: bogdanrykhlitskyy
+  password: root
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -43,13 +44,13 @@ test:
   encoding: unicode
   database: todo_backbone_test
   pool: 5
-  username: todo_backbone
-  password:
+  username: bogdanrykhlitskyy
+  password: root
 
 production:
   adapter: postgresql
   encoding: unicode
   database: todo_backbone_production
   pool: 5
-  username: todo_backbone
-  password:
+  uusername: bogdanrykhlitskyy
+  password: root

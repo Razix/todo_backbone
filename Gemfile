@@ -36,3 +36,11 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+gem 'haml'
+gem 'haml-rails'
+
+group :development do
+  gem 'quiet_assets'
+end
+
+gem 'backbone-on-rails'
