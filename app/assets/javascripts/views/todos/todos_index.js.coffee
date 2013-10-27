@@ -7,11 +7,20 @@ class TodoBackbone.Views.TodosIndex extends Backbone.View
 
   initialize: ->
     @collection.on('reset', @render, this)
+    @collection.on('add', @appendTodo, this)
 
   render: ->
-    $(@el).html(@template(todos: @collection))
+    $(@el).html(@template())
+    @collection.each(@appendTodo)
     this
+
+  appendTodo: (todo) ->
+    view = new TodoBackbone.Views.Todo(model: todo)
+    $('#todos').append(view.render().el)
 
   createTodo: (event) ->
     event.preventDefault()
-    @collection.create name: $('#new_todo_name').val()
+    attributes = name: $('#new_todo_name').val()
+    @collection.create attributes,
+      wait: true
+      success: -> $('#new_todo')[0].reset()
