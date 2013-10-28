@@ -8,7 +8,8 @@ class TodoBackbone.Views.Todo extends Backbone.View
     'change input[type=checkbox]': 'toggleCompletion'
 
   initialize: ->
-    @model.on('hide', @remove, this)
+    @model.on('remove', @remove, this)
+    @model.on('change', @render, this)
 
   removeTodo: ->
     @model.destroy()

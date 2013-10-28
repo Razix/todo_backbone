@@ -8,7 +8,6 @@ class TodoBackbone.Views.TodosIndex extends Backbone.View
   initialize: ->
     @collection.on('reset', @render, this)
     @collection.on('add', @appendTodo, this)
-    @collection.on('destroy', @render, this)
 
   render: ->
     $(@el).html(@template())
