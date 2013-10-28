@@ -4,10 +4,12 @@ class TodoBackbone.Views.TodosIndex extends Backbone.View
 
   events:
     'submit #new_todo': 'createTodo'
+    'click #remove_completed': 'removeCompleted'
 
   initialize: ->
     @collection.on('reset', @render, this)
     @collection.on('add', @appendTodo, this)
+    @collection.on('change', @render, this)
 
   render: ->
     $(@el).html(@template())
@@ -24,3 +26,7 @@ class TodoBackbone.Views.TodosIndex extends Backbone.View
     @collection.create attributes,
       wait: true
       success: -> $('#new_todo')[0].reset()
+
+  removeCompleted: ->
+    _.invoke @collection.completed(), 'destroy'
+    false

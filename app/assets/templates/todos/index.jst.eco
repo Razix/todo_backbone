@@ -6,3 +6,4 @@
 </form>
 
 <ul id="todos"></ul>
+<button id="remove_completed">Remove completed</button>
