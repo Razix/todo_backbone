@@ -80,3 +80,19 @@ li {
   color: #bbb;
   text-decoration: line-through;
 }
+
+#todos input.edit {
+  display: none;
+}
+
+#todos li.editing .edit {
+  display: block;
+  width: 300px;
+  padding: 1px 17px 1px 17px;
+  margin: 0 0 0 43px;
+  z-index: 0;
+}
+
+#todos li.editing .view {
+  display: none;
+}

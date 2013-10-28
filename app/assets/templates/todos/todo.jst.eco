@@ -1,1 +1,6 @@
-<input type=checkbox <%= 'checked' if @todo.get('completed') %> /><label <%= 'class=completed' if @todo.get('completed') %>><%= @todo.get('name') %></label><button type=button id="delete">Delete</button>
+<div class="view">
+  <input type=checkbox <%= 'checked' if @todo.get('completed') %> />
+  <label <%= 'class=completed' if @todo.get('completed') %>><%= @todo.get('name') %></label>
+  <button type=button id="delete">Delete</button>
+</div>
+<input class="edit" value="<%= @todo.get('name') %>">

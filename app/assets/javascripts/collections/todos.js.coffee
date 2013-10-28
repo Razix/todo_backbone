@@ -4,4 +4,8 @@ class TodoBackbone.Collections.Todos extends Backbone.Collection
   model: TodoBackbone.Models.Todo
 
   completed: ->
-    @where completed: true
+    this.filter (todo) ->
+      todo.get('completed')
+
+  remaining: ->
+    @without.apply this, @completed()
