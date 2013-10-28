@@ -1,1 +1,1 @@
-<%= @todo.get('name') %>
+<label><input type=checkbox <%= 'checked' if @todo.get('completed') %> /><%= @todo.get('name') %></label><button type=button id="delete">Delete</button>

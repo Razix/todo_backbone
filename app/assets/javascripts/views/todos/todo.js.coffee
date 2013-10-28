@@ -4,15 +4,17 @@ class TodoBackbone.Views.Todo extends Backbone.View
   tagName: 'li'
 
   events:
-    'dblclick': 'removeTodo'
+    'click button#delete': 'removeTodo'
+    'change input[type=checkbox]': 'toggleCompletion'
 
-  # initialize: ->
-  #   @model.on('change', @render, this)
+  initialize: ->
+    @model.on('hide', @remove, this)
 
   removeTodo: ->
     @model.destroy()
-    # @model.set({name: "#{@model.get('name')}_upd"})
-    # @model.save()
+
+  toggleCompletion: ->
+    @model.toggleCompletion()
 
   render: ->
     $(@el).html(@template(todo: @model))
